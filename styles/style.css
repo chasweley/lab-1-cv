@@ -1,0 +1,198 @@
+:root {
+   --main-color: rgb(17, 17, 17);
+   --secondary-color: rgb(255, 53, 97);
+   --secondary-color-darker: rgb(255, 0, 55);
+   --background-color: rgb(255, 255, 255);
+}
+html {
+   font-size: 22px;
+   font-family: 'Inter', sans-serif;
+}
+
+body {
+   margin: 0;
+}
+
+.container {
+   height: 100vh;
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+   grid-template-rows: 3em 1fr 2em;
+}
+
+.container header.grid-header {
+   grid-column-start: 1;
+   grid-column-end: 2;
+   height: min-content;
+   background-color: var(--background-color);
+}
+
+.container main.grid-main {
+   grid-row-start: 2;
+   grid-column-start: 1;
+   grid-column-end: 2;
+   background-color: rgb(255, 255, 255);
+}
+
+.container main.grid-main-about {
+   grid-row-start: 2;
+   grid-column-start: 1;
+   grid-column-end: 1;
+   background-color: var(--background-color);
+}
+
+.container aside.grid-aside {
+   grid-row-start: 1;
+   grid-row-end: 4;
+   grid-column-start: 2;
+   background-color: var(--secondary-color);
+}
+.container footer.grid-footer {
+   grid-column-start: 1;
+   grid-column-end: 3;
+   grid-row-start: 3;
+   height: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+   .container {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 10rem max-content 2rem;
+   }
+   .container header.grid-header {
+      grid-column-start: 1;
+      grid-row-start: 1;
+      height: 3em;
+      background-color: rgb(255, 255, 255);
+   }
+
+   .container main.grid-main {
+      grid-row-start: 2;
+      grid-column-start: 1;
+      grid-column-end: 1;
+      min-height: calc(100vh - 3em - 2em);
+      background-color: var(--background-color);
+   }
+
+   .container aside.grid-aside {
+      grid-row-start: 3;
+      grid-column-start: 1;
+      background-color: rgb(255, 53, 97);
+   }
+   .container footer.grid-footer {
+      grid-row-start: 4;
+      grid-row-end: 4;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      height: 2rem;
+   }
+}
+@media print {
+   .container {
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 3rem max-content 2rem;
+   }
+   .container header.grid-header {
+      grid-column-start: 1;
+      grid-row-start: 1;
+      height: 3rem;
+      background-color: var(--background-color);
+   }
+
+   .container main.grid-main {
+      grid-row-start: 2;
+      grid-column-start: 1;
+      grid-column-end: 1;
+      background-color: var(--background-color);
+   }
+
+   .container aside.grid-aside {
+      grid-row-start: 3;
+      grid-column-start: 1;
+      background-color: var(--background-color);
+   }
+   .container footer.grid-footer {
+      grid-row-start: 4;
+      grid-column-start: 1;
+      height: 2rem;
+   }
+}
+
+.navigation {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   padding-left: 0;
+   list-style-type: none;
+   border-radius: 0 0 0 0;
+   height: 2rem;
+}
+#not-index {
+   background-color: var(--secondary-color);
+}
+
+@media screen and (max-width: 600px) {
+   #navigation {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding-left: 0;
+      list-style-type: none;
+   }
+}
+
+#navigation a:link /* a normal, unvisited link */ {
+   color: var(--main-color);
+   text-decoration: none;
+}
+
+#navigation a:visited /* a link the user has visited */ {
+   color: var(--main-color);
+}
+
+#navigation a:hover /* a link when the user mouses over it */ {
+   color: var(--secondary-color);
+   text-underline-offset: 0.2rem;
+   text-decoration: wavy underline var(--secondary-color);
+}
+
+#navigation a:active /* a link the moment it is clicked */ {
+   color: var(--secondary-color-darker);
+   text-underline-offset: 0.2rem;
+   text-decoration: wavy underline var(--secondary-color-darker);
+}
+
+#main-flex {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+}
+#main-flex-img {
+   height: 20rem;
+   background: rgb(255, 255, 255);
+   background: linear-gradient(
+      56deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 0, 55, 1) 100%
+   );
+   border-radius: 999999rem;
+}
+#aside-flex {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+}
+#aside-flex-border {
+   background-color: var(--background-color);
+   height: min-content;
+   width: min-content;
+   padding: 2rem;
+}
