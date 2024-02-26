@@ -358,7 +358,7 @@ a:active /* a link the moment it is clicked */ {
 }
 
 #main-flex-img {
-   height: 15rem;
+   height: 5rem;
    background: rgb(255, 255, 255);
    background: linear-gradient(
       56deg,
