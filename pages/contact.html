@@ -19,51 +19,38 @@
          rel="stylesheet"
       />
    </head>
-   <!-- Lägg till innehåll  -->
-   <!-- Lägg till presentation av mig själv  -->
    <body>
       <div class="container">
          <header class="grid-header">
-            <!-- Lägg till innehåll  -->
-            <!-- Du ska ha en meny där användaren kan ta sig runt till alla olika undersidor -->
-            <!-- Din webbplats ska bestå av minst fem (5) olika sidor som besökaren kan navigera mellan-->
-            <!-- Din webbplats ska bestå av minst fem (5) olika sidor som besökaren kan navigera mellan-->
-            <!-- I menyn ska det synas vilken sida man som besökare är på-->
-
             <nav>
-               <ul class="navigation" id="not-index">
-                  <li><a href="../index.html">Charlotte Swenning Leyser</a></li>
+               <input type="checkbox" id="nav-toggle">
+               <ul id="navigation">
+                  <li><a href="../index.html">Home</a></li>
                   <li><a href="./about.html">About me</a></li>
                   <li><a href="./resume.html">Resume</a></li>
-                  <li><a href="./projects.html">Projects</a></li>
-                  <li><a href="./contact.html">Contact</a></li>
+                  <li><a href="./projects.html">Portfolio</a></li>
+                  <li><a id="current-page" href="./contact.html">Contact</a></li>
                </ul>
             </nav>
+            <div id="ham-menu">
+               <label for="nav-toggle">
+                  <i class="fa-solid fa-bars"></i>
+               </label>
+            </div>
          </header>
          <main class="grid-main-about">
-            <div>
-               <p>
-                  Hi, my name is Charlotte! I'm currently studying full stack
-                  development with focus on .NET. I really love problem solving,
-                  that's why I think coding suits me so well.
-               </p>
-               <p>I'm driven, thorough and learn quickly.</p>
-               <p>
-                  My bachelor's degree in psychology together with my work
-                  experience has made me able to work with lots of different
-                  people in various situations.
-               </p>
-               <div>
-                  <ul>
-                     <li><a href="">Education</a></li>
-                     <li><a href="">Work experience</a></li>
-                  </ul>
-               </div>
-               <div>
-                  <a href="">CV</a>
-               </div>
+            <div class="page-content">
+               <h1>Contact</h1>
+               <p>Hit me up at <a href="https://se.linkedin.com/in/charlotte-swenning-leyser">LinkedIn</a>, can't wait to hear from you!</p>
             </div>
          </main>
+         <aside class="grid-aside">
+            <div id="aside-flex"><div id="aside-flex-border">
+               <ul class="aside-content">
+                  <li>Test</li>
+               </ul>
+            </div>
+         </aside>
          <footer class="grid-footer">
             <a href="https://github.com/chasweley/"
                ><i class="fa-brands fa-github"></i
