@@ -1,16 +1,163 @@
 :root {
    --main-color: rgb(17, 17, 17);
    --secondary-color: rgb(255, 53, 97);
-   --secondary-color-darker: rgb(255, 0, 55);
+   --secondary-color-darker: rgb(209, 8, 52);
    --background-color: rgb(255, 255, 255);
 }
-html {
-   font-size: 22px;
+
+* {
+   font-size: 26px;
    font-family: 'Inter', sans-serif;
+}
+
+.main-heading {
+   font-family: "Questrial", sans-serif;
+   font-size: 2.3rem;
+   font-weight: 500;
+   padding-top: 1.1rem;
 }
 
 body {
    margin: 0;
+}
+
+h1 {
+   font-size: 2rem;
+}
+
+h2 {
+   font-size: 1.2rem;
+}
+
+h1,
+h2,
+p,
+footer,
+ol,
+ul {
+   padding-left: 1.5rem;
+   padding-right: 1.5rem;
+}
+
+.cursive {
+   font-style: italic;
+}
+
+.bold {
+   font-weight: 700;
+}
+
+.page-content {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   justify-content: center;
+}
+
+.header-button {
+   color: var(--secondary-color);
+   background-color: var(--secondary-color);
+   border: none;
+}
+
+.aside-content {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   height: 5rem;
+   list-style-type: none;
+}
+
+.ol-resume,
+.ul-portfolio {
+   list-style-type: none;
+}
+
+.li-resume {
+   margin-bottom: 1.1rem;
+}
+
+@media screen and (min-width: 1500px) {
+   .resume-card {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+   }
+   .div-resume {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+   }
+}
+
+.ul-portfolio {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+.img-portfolio {
+   max-width: 90%;
+}
+
+.project-card {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 2rem;
+   width: 48%;
+   border-radius: 15px;
+   align-items: center;
+   box-shadow: 5px 5px 8px 8px lightgray;
+}
+
+@media screen and (max-width: 900px) {
+   .ul-portfolio {
+      flex-direction: column;
+   }
+
+   .project-card {
+      width: 100%;
+   }
+}
+
+#show-more-toggle-n, #show-more-toggle-bn {
+   display: none;
+}
+
+.div-show-more {
+   margin-top: 1.5rem;
+   margin-bottom: 2rem;
+}
+
+.more-info-modal {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translateX(-50%) translateY(-50%);
+   text-align: center;
+   background-color: var(--background-color);
+   padding-bottom: 1.5rem;
+   border-radius: 15px;
+   border: 1px solid lightgray;
+}
+
+.show-more-button {
+   background-color: var(--secondary-color);
+   color: white;
+   border-radius: 40px;
+   padding-top: 0.6rem;
+   padding-bottom: 0.6rem;
+   padding-left: 1.1rem;
+   padding-right: 1.1rem;
+   border: 1px solid var(--secondary-color);
+}
+
+#show-more-toggle-n:not(:checked) ~ .more-info-modal {
+   display: none;
+}
+
+#show-more-toggle-bn:not(:checked) ~ .more-info-modal {
+   display: none;
 }
 
 .container {
@@ -47,6 +194,7 @@ body {
    grid-column-start: 2;
    background-color: var(--secondary-color);
 }
+
 .container footer.grid-footer {
    grid-column-start: 1;
    grid-column-end: 3;
@@ -59,7 +207,7 @@ body {
       height: 100vh;
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 10rem max-content 2rem;
+      grid-template-rows: 5rem max-content 2rem;
    }
    .container header.grid-header {
       grid-column-start: 1;
@@ -77,9 +225,7 @@ body {
    }
 
    .container aside.grid-aside {
-      grid-row-start: 3;
-      grid-column-start: 1;
-      background-color: rgb(255, 53, 97);
+      display: none;
    }
    .container footer.grid-footer {
       grid-row-start: 4;
@@ -120,59 +266,97 @@ body {
       grid-column-start: 1;
       height: 2rem;
    }
+
+   .header-button {
+      display: none;
+   }
 }
 
-.navigation {
+#navigation {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
    padding-left: 0;
    list-style-type: none;
    border-radius: 0 0 0 0;
-   height: 2rem;
 }
-#not-index {
-   background-color: var(--secondary-color);
+
+#nav-toggle {
+   display: none;
 }
 
 @media screen and (max-width: 600px) {
-   #navigation {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      padding-left: 0;
-      list-style-type: none;
+   .fa-solid, fa-bars {
+      color: var(--secondary-color);
    }
 }
 
-#navigation a:link /* a normal, unvisited link */ {
+@media screen and (max-width: 900px) {
+   #ham-menu {
+      display: block;
+      position: absolute;
+      right: 5%;
+      top: 5%;
+      z-index: 1;
+   }
+   
+   #navigation {
+      flex-direction: column;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 100%;
+      text-align: center;
+      background-color: var(--background-color);
+      overflow: hidden;
+      margin-top: 0;
+      transition: all 0.5s;
+   }
+
+   #nav-toggle:checked ~ #navigation{
+      background-color: var(--background-color);
+      bottom: 50%;
+      padding-top: 0.5rem;
+      padding: 0.5rem;
+   }
+}
+
+a:link /* a normal, unvisited link */ {
    color: var(--main-color);
    text-decoration: none;
+   font-size: 1rem;
 }
 
-#navigation a:visited /* a link the user has visited */ {
+a:visited /* a link the user has visited */ {
    color: var(--main-color);
 }
-
-#navigation a:hover /* a link when the user mouses over it */ {
+a:hover /* a link when the user mouses over it */ {
    color: var(--secondary-color);
    text-underline-offset: 0.2rem;
-   text-decoration: wavy underline var(--secondary-color);
+   text-decoration: underline var(--secondary-color);
 }
 
-#navigation a:active /* a link the moment it is clicked */ {
+a:active /* a link the moment it is clicked */ {
    color: var(--secondary-color-darker);
    text-underline-offset: 0.2rem;
-   text-decoration: wavy underline var(--secondary-color-darker);
+   text-decoration: underline var(--secondary-color-darker);
+}
+
+#current-page {
+   color: var(--secondary-color);
 }
 
 #main-flex {
    display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
    height: 100%;
    width: 100%;
 }
+
 #main-flex-img {
    height: 20rem;
    background: rgb(255, 255, 255);
@@ -183,6 +367,13 @@ body {
    );
    border-radius: 999999rem;
 }
+
+@media screen and (max-width: 900px) {
+   #main-flex-img {
+      height: 10rem;
+   }
+}
+
 #aside-flex {
    display: flex;
    justify-content: center;
@@ -190,9 +381,10 @@ body {
    height: 100%;
    width: 100%;
 }
+
 #aside-flex-border {
-   background-color: var(--background-color);
    height: min-content;
    width: min-content;
-   padding: 2rem;
+   color: var(--background-color);
+   font-size: 1rem;
 }
