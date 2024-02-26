@@ -15,9 +15,8 @@ button.addEventListener('click', () => {
 let pressedKeys = '';
 window.addEventListener('keyup', (e) => {
    pressedKeys += e.key;
-   pressedKeys = pressedKeys.slice(-9);
-   if(pressedKeys === "christmas") {
-      console.log(pressedKeys);
+   pressedKeys = pressedKeys.slice(-4);
+   if(pressedKeys === "xmas") {
       alert("It's not christmas yet, you'll have to wait a bit more!");
    }
 });
