@@ -17,8 +17,8 @@ window.addEventListener('keyup', (e) => {
    pressedKeys += e.key;
    pressedKeys = pressedKeys.slice(-8);
    if(pressedKeys === "julafton") {
+      console.log(pressedKeys);
       alert("Det är inte jul än, du får vänta lite till!");
    }
-   console.log(pressedKeys);
 });
 
