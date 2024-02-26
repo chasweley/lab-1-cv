@@ -15,10 +15,10 @@ button.addEventListener('click', () => {
 let pressedKeys = '';
 window.addEventListener('keyup', (e) => {
    pressedKeys += e.key;
-   pressedKeys = pressedKeys.slice(-8);
-   if(pressedKeys === "julafton") {
+   pressedKeys = pressedKeys.slice(-9);
+   if(pressedKeys === "christmas") {
       console.log(pressedKeys);
-      alert("Det är inte jul än, du får vänta lite till!");
+      alert("It's not christmas yet, you'll have to wait a bit more!");
    }
 });
 
