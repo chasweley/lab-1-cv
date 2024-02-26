@@ -1,6 +1,3 @@
-// Sidan ska ha två påskägg som ska byggas med vanilla javascript
-// Ditt andra påskägg ska aktiveras när användaren skriver in en kombination på tangentbordet, exempelvis “1337”. När användaren skrivit in kombinationen på tangentbordet ska det komma upp något roligt meddelande i en modal-popup.
-// Ditt ena påskägg ska aktiveras av att användaren klickar på någon “udda” del av webbplatsen som man vanligtvis inte brukar klicka på. När denna del klickas på ska webbplatsens bakgrund bytas ut.
 const button = document.querySelector('.header-button');
 const gridMain = document.querySelector('.grid-main');
 
